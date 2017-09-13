@@ -1,7 +1,7 @@
 # Hoisting
 
 ## Overview
-In this lesson, we'll introduce the concept of hoisting and explain how the problems it causes are easily avoided.
+In this lesson, we'll introduce the concept of hoisting, which deals with how function and variable declarations seem to get 'hoisted' to the top of the current scope. We'll also explain how the problems it causes are easily avoided by following simple rules for where and how declarations should happen within your code.
 
 ## Objectives
 1. Detail how function and variable declarations are 'hoisted'.
@@ -10,8 +10,6 @@ In this lesson, we'll introduce the concept of hoisting and explain how the prob
 
 ## Function hoisting
 ![Let's get hoisting!](https://user-images.githubusercontent.com/17556281/29393642-fcaaf4b6-82d2-11e7-8ae5-99f538aac265.gif)
-
-Hoisting is often cited as an annoyance with JavaScript, but most of those complaints are from a pre-ES2015 world.
 
 Because the JavaScript engine reads a JavaScript file from top-to-bottom, it would make sense if we had to define a function before we invoked it:
 ```js
@@ -33,7 +31,11 @@ function myFunc () {
 // => "Hello, world!"
 ```
 
-***NOTE***: To follow along in your browser's JavaScript console, make sure you type all of the code into the prompt before you press **Enter**. If you type `myFunc();` and then execute the code, you'll see an `Uncaught ReferenceError` telling you that `myFunc is not defined`.
+***NOTE***: To follow along in your browser's JavaScript console, make sure you type all of the code into the prompt before you press **Enter**. To insert a new line without executing what you've typed, hold **Shift** and press **Enter**. If you type `myFunc();` and then hit **Enter**, the browser will run your code, and you'll see an `Uncaught ReferenceError` telling you that `myFunc is not defined`. If it helps, you can copy and paste the above code all at once, or you can type it on a single line:
+```js
+myFunc(); function myFunc () { return 'Hello, world!'; }
+// => "Hello, world!"
+```
 
 This reads as though we're invoking the function prior to declaring it, but we're forgetting about the two-phase nature of the JavaScript engine. During the compilation phase, the engine skips right over the invocation and stores the declared function in memory:
 ```js
@@ -83,7 +85,19 @@ myFunc();
 
 It prints out `undefined`. What the heck?!
 
-You see, in JavaScript, hoisting only applies to variable _declarations_; not variable _assignments_. During the compilation phase, the JavaScript engine initializes the variable `hello`, storing it in memory. At this point, however, **no value is assigned to the variable**. As far as the JavaScript engine is concerned, the variable `hello` exists, but it contains `undefined`.
+You see, in JavaScript, hoisting only applies to variable _declarations_; not variable _assignments_. As a quick refresher on that terminology:
+```js
+// Declaration:
+var hello;
+
+// Assignment:
+hello = 'World!';
+
+// Declaration and assignment on the same line:
+var goodnight = 'Moon';
+```
+
+During the compilation phase, the JavaScript engine initializes the variable `hello`, storing it in memory. At this point, however, **no value is assigned to the variable**. As far as the JavaScript engine is concerned, the variable `hello` exists, but it contains `undefined`.
 
 The variable will contain `undefined` until it's assigned a different value during the execution phase. Because of this odd behavior, you'll often see variable hoisting explained by taking some sample code...
 ```js
@@ -163,7 +177,9 @@ myOtherVar;
 // => "Gotta assign a value for our beloved 'const'."
 ```
 
-Since we can't even reference them, the whole problem of hoisted variables evaluating to `undefined` prior to assignment is moot. Rejoice!
+Since we can't even reference them, the whole problem of hoisted variables evaluating to `undefined` prior to assignment is moot.
+
+Hoisting is often cited as an annoyance with JavaScript, but most of those complaints are from a pre-ES2015 world. Rejoice!
 
 ## Resources
 - [SitePoint — Back to Basics: JavaScript Hoisting](https://www.sitepoint.com/back-to-basics-javascript-hoisting/)
