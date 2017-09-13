@@ -3,6 +3,10 @@
 ## Overview
 In this lesson, we'll introduce the concept of hoisting, which deals with how function and variable declarations seem to get 'hoisted' to the top of the current scope. We'll also explain how the problems it causes are easily avoided by following simple rules for where and how declarations should happen within your code.
 
+If you read any pre-ES2015 JavaScript materials, hoisting is sure to come up as a topic of concern. However, follow these two simple rules, and you'll never have to worry about it:
+- **Declare all of your functions at the top of their scope**. If the functions are declared in the global scope, simply put them at the top of the JavaScript file. If they're declared inside another function, put the declaration at the top of the function body.
+- **Only use `const` and `let`. Never use `var`.**
+
 ## Objectives
 1. Detail how function and variable declarations are 'hoisted'.
 2. Explain why it's best to declare functions and variables (at least those declared with `var`) at the top of the scope.
@@ -162,15 +166,16 @@ function myGoodFunc () {
 }
 ```
 
-2. For the love of all things good in this world, ***don't use `var`***. Variables declared with `const` and `let` do technically get 'hoisted', but the JavaScript engine doesn't allow them to be referenced before they've been initialized:
+2. For the love of all things good in this world, ***don't use `var`***. Variables declared with `const` and `let` do technically get 'hoisted', but the JavaScript engine doesn't allow them to be referenced before they've been initialized. Bad:
 ```js
-// BAD
 myVar;
 
 let myVar = "Assignment is optional since we used 'let'.";
-// ERROR: Uncaught ReferenceError: myOtherVar is not defined
+// ERROR: Uncaught ReferenceError: myVar is not defined
+```
 
-// GOOD
+Good:
+```js
 const myOtherVar = "Gotta assign a value for our beloved 'const'.";
 
 myOtherVar;
