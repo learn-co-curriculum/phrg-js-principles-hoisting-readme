@@ -13,7 +13,11 @@ If you read any pre-ES2015 JavaScript materials, hoisting is sure to come up as 
 3. Understand, as always, that ***it's better to use `const` and `let`*** than `var`.
 
 ## Function hoisting
-![Let's get hoisting!](https://user-images.githubusercontent.com/17556281/29393642-fcaaf4b6-82d2-11e7-8ae5-99f538aac265.gif)
+<picture>
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/principles/hoisting-readme/lets_get_hoisting.webp" type="image/webp">
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/principles/hoisting-readme/lets_get_hoisting.gif" type="image/gif">
+  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/principles/hoisting-readme/lets_get_hoisting.gif" alt="Let's get hoisting!">
+</picture>
 
 Because the JavaScript engine reads a JavaScript file from top-to-bottom, it would make sense if we had to define a function before we invoked it:
 ```js
@@ -145,7 +149,11 @@ myFunc();
 5. At the final line, we `return` the value of `hello`, which by now has been assigned and evaluates to `'World!'`.
 
 ### Avoiding the confusion of `var` hoisting
-![And I'm not about to hoist myself out of it.](https://user-images.githubusercontent.com/17556281/29393645-fdd812c4-82d2-11e7-8225-55dc6e922466.gif)
+<picture>
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/principles/hoisting-readme/not_about_to_hoist.webp" type="image/webp">
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/principles/hoisting-readme/not_about_to_hoist.gif" type="image/gif">
+  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/principles/hoisting-readme/not_about_to_hoist.gif" alt="And I'm not about to hoist myself out of it.">
+</picture>
 
 There are two ways to keep the JavaScript engine from 'hoisting' your variables:
 
