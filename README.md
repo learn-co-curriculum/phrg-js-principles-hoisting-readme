@@ -158,37 +158,37 @@ myFunc();
 There are two ways to keep the JavaScript engine from 'hoisting' your variables:
 
 1. If, for whatever reason, your current project requires that you use `var`, follow our rule for function declarations and declare everything at the **top** of its scope. E.g., if you need to declare a variable within a function, declare it at the **top** of that function:
-```js
-// BAD
-function myBadFunc () {
-  console.log('Just doing some other stuff before we get around to variable declarations.');
+    ```js
+    // BAD
+    function myBadFunc () {
+      console.log('Just doing some other stuff before we get around to variable declarations.');
 
-  var myVar = 42;
-}
+      var myVar = 42;
+    }
 
-// GOOD
-function myGoodFunc () {
-  var myVar = 42;
+    // GOOD
+    function myGoodFunc () {
+      var myVar = 42;
 
-  console.log("Much better! The variable declaration is at the top of the scope created by 'myGoodFunc()', so there's no chance it gets 'hoisted'.");
-}
-```
+      console.log("Much better! The variable declaration is at the top of the scope created by 'myGoodFunc()', so there's no chance it gets 'hoisted'.");
+    }
+    ```
 
 2. For the love of all things good in this world, ***don't use `var`***. Variables declared with `const` and `let` do technically get 'hoisted', but the JavaScript engine doesn't allow them to be referenced before they've been initialized. Bad:
-```js
-myVar;
+    ```js
+    myVar;
 
-let myVar = "Assignment is optional since we used 'let'.";
-// ERROR: Uncaught ReferenceError: myVar is not defined
-```
+    let myVar = "Assignment is optional since we used 'let'.";
+    // ERROR: Uncaught ReferenceError: myVar is not defined
+    ```
 
-Good:
-```js
-const myOtherVar = "Gotta assign a value for our beloved 'const'.";
+    Good:
+    ```js
+    const myOtherVar = "Gotta assign a value for our beloved 'const'.";
 
-myOtherVar;
-// => "Gotta assign a value for our beloved 'const'."
-```
+    myOtherVar;
+    // => "Gotta assign a value for our beloved 'const'."
+    ```
 
 Since we can't even reference them, the whole problem of hoisted variables evaluating to `undefined` prior to assignment is moot.
 
