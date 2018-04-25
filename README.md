@@ -197,3 +197,4 @@ Hoisting is often cited as an annoyance with JavaScript, but most of those compl
 ## Resources
 - [SitePoint — Back to Basics: JavaScript Hoisting](https://www.sitepoint.com/back-to-basics-javascript-hoisting/)
 - [MDN — `var` hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
+<p data-visibility='hidden'>PHRG Hoisting</p>
