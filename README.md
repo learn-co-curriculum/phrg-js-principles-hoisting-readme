@@ -194,6 +194,10 @@ Since we can't even reference them, the whole problem of hoisted variables evalu
 
 Hoisting is often cited as an annoyance with JavaScript, but most of those complaints are from a pre-ES2015 world. Rejoice!
 
+## Does this need an update?
+
+Please open a [GitHub issue](https://github.com/learn-co-curriculum/phrg-js-principles-hoisting-readme/issues) or [pull-reqeust](https://github.com/learn-co-curriculum/phrg-js-principles-hoisting-readme/pulls). Provide a detailed description that explains the issue you have found or the change you are proposing. Then "@" mention your instructor on the issue or pull-reqeust, and send them a link via Connect.
+
 ## Resources
 - [SitePoint — Back to Basics: JavaScript Hoisting](https://www.sitepoint.com/back-to-basics-javascript-hoisting/)
 - [MDN — `var` hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
